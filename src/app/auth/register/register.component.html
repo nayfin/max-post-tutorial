@@ -1,0 +1,56 @@
+<mat-card>
+    <mat-spinner
+      *ngIf="isLoading">
+    </mat-spinner>
+    <form
+      *ngIf="!isLoading"
+      (submit)="registerUser()"
+      [formGroup]="form">
+  
+      <mat-form-field>
+        <input
+          matInput 
+          type="email"
+          formControlName="email"
+          required
+          placeholder="Email address">
+        <mat-error>
+          Please enter email address
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input 
+          matInput
+          type="password"
+          formControlName="password"
+          required
+          placeholder="Choose password">
+        <mat-error>
+          Please enter password
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input 
+            matInput
+            type="password"
+            formControlName="passwordConfirmation"
+            required
+            placeholder="Confirm password">
+          <mat-error>
+            Passwords do not match
+          </mat-error>
+        </mat-form-field>
+      
+      <div>
+        <button 
+          mat-raised-button
+          color="primary"
+          type="submit">
+          REGISTER
+        </button>
+      </div>
+      
+    </form>
+  </mat-card>

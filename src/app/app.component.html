@@ -1,0 +1,8 @@
+<app-header></app-header>
+{{ (user$ | async | json) || 'no user' }}
+<main>
+
+  <router-outlet>
+  </router-outlet>
+
+</main>

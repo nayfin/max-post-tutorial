@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <a
+    mat-button
+    [routerLink]="['']"
+    routerLinkActive="mat-accent"
+    [routerLinkActiveOptions]="{exact: true}">
+    MESSAGES
+  </a>
+  
+  <span class="spacer"></span>
+
+  <div *ngIf="loggedIn">
+    <a
+      *ngFor="let link of authenticatedLinks"
+      mat-button
+      [routerLink]="[link.path]"
+      routerLinkActive="mat-accent"
+      [routerLinkActiveOptions]="{exact: true}"
+      (click)="executeClickFn(link.clickFn)">
+      {{ link.label }}
+    </a>
+  </div>
+
+  <div *ngIf="!loggedIn">
+    <a
+      *ngFor="let link of anonymousLinks"
+      mat-button
+      [routerLink]="[link.path]"
+      routerLinkActive="mat-accent"
+      [routerLinkActiveOptions]="{exact: true}"
+      (click)="link.clickFn">
+      {{ link.label }}
+    </a>
+  </div>
+</mat-toolbar>

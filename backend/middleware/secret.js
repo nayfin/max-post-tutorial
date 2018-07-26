@@ -1,0 +1,1 @@
+module.exports = 'TODO_CHANGE_THIS_TO_GENERATED_VARIABLE';
